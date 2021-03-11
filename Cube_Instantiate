@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Cube_Instantiate : MonoBehaviour
+{
+    //public GameObject obj1;
+    float x, y, z;
+    // Start is called before the first frame update
+    void Start()
+    {
+        Destroy(gameObject);
+        InvokeRepeating("spawn_fn", 5, 5);
+    }
+
+    void spawn_fn()
+    {
+        x = Random.Range(-24, 24);
+        y = 1;
+        z = Random.Range(-24, 24);
+        Instantiate(gameObject, new Vector3(x, y, z), Quaternion.identity);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
