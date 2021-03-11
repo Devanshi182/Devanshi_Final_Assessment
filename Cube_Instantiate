@@ -4,26 +4,45 @@ using UnityEngine;
 
 public class Cube_Instantiate : MonoBehaviour
 {
-    //public GameObject obj1;
-    float x, y, z;
+    public GameObject obj1, obj2, obj3, obj4;
+
+    public float spawn_rate = 5f;
+
+    float next_spawn = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject);
-        InvokeRepeating("spawn_fn", 5, 5);
-    }
 
-    void spawn_fn()
-    {
-        x = Random.Range(-24, 24);
-        y = 1;
-        z = Random.Range(-24, 24);
-        Instantiate(gameObject, new Vector3(x, y, z), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Time.time > next_spawn)
+        {
+            //Destroy(gameObject);
+             int obj_spawn = Random.Range(0,4);
+            Debug.Log(obj_spawn);
+            switch (obj_spawn)
+            {
+                case 0:
+                    Instantiate(obj1, transform.position, Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(obj2, transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(obj3, transform.position, Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(obj4, transform.position, Quaternion.identity);
+                    break;
+            }
+
+            next_spawn = Time.time + spawn_rate;
+        }
+
     }
+
 }
