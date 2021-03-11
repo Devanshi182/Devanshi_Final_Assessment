@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeScalingWest : MonoBehaviour
+public class Cube_Scaling_West : MonoBehaviour
 {
     float i = 1;
     // Start is called before the first frame update
