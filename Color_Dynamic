@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Color_Dynamic : MonoBehaviour
+{
+    public Material[] materials_group;
+    // Start is called before the first frame update
+    void Start()
+    {
+        Invoke("color_change", 5);
+    }
+
+    void color_change()
+    {
+        MeshRenderer meshrend = GetComponent<MeshRenderer>();
+        meshrend.material = materials_group[Random.Range(0, materials_group.Length)];
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
